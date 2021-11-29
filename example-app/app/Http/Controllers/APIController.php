@@ -16,7 +16,7 @@ class APIController extends Controller
         $user=User::all();
         return (new ApiTransformer())->transform($user);
         //return ['name'=>'Yogi'];
-        return response()->collection($user,new ApiTransformer());
+        //return response()->collection($user,new ApiTransformer());
     }
     public function add(Request $req)
     {

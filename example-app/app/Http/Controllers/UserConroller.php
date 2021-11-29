@@ -103,11 +103,12 @@ class UserConroller extends Controller
         if (Auth::attempt($input)) {
             Session::put('username',$data->name);
             Session::put('role',$req->input('role'));
+            Session::put('id',$data->id);
             return redirect('user/home');
         }
   
         // return redirect("login")->withSuccess('Login details are not valid');
-        //return redirect()->intended('user/login')->withSuccess('Login details are not valid');
+        return redirect()->intended('user/login')->withSuccess('Login details are not valid');
     }
     public function logout()
     {

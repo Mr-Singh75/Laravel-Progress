@@ -12,10 +12,12 @@
   <input type="text" id="email" name="email" ><br>
   <label for="password">Password</label><br>
   <input type="password" id="password" name="password" ><br><br>
+  {{--
   <input type="radio" name="role" value="admin">Admin 
   <input type="radio" name="role" value="user">User 
   <input type="radio" name="role" value="guest">Guest
  <br>
+ --}}
   <input type="submit" value="LOGIN">
 </form> 
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\KYCController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserConroller;
 use App\Http\Controllers\MobileController;
@@ -45,10 +46,19 @@ Route::get('user/login', function () {
     return view('login');
 });
 Route::get('user/logout',[UserConroller::class,'logout'])->name('logout');
-Route::view('user/home','home')->middleware('rolecheck')->middleware('rolecheck');
+// Route::view('user/home','home')->middleware('rolecheck');
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::view('user/admindashboard','Dashboard.admindashboard');
 Route::view('user/userdashboard','Dashboard.userdashboard');
 Route::view('user/guestdashboard','Dashboard.guestdashboard');
+
+
+
+//////////KYC Example///////
+
+Route::view('user/home','home')->middleware('kyccheck');
+Route::view('user/pending','KYC.pending');
+Route::view('user/kycform','KYC.kycform');
+Route::post('user/kycaction',[KYCController::class,'kycAction']);
